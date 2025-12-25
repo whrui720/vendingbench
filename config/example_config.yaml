@@ -1,0 +1,28 @@
+# Example configuration file for vendingbench
+
+# Model Configuration
+model:
+  provider: "openai"  # or "anthropic", "cohere", "mock"
+  model_name: "gpt-3.5-turbo"
+  temperature: 0.7
+  max_tokens: 500
+
+# Scenario Configuration
+scenarios:
+  - name: "basic_vending"
+    enabled: true
+  - name: "complex_vending"
+    enabled: true
+  - name: "edge_cases"
+    enabled: true
+
+# Evaluation Configuration
+evaluation:
+  save_results: true
+  output_dir: "results"
+  verbose: true
+  
+# Logging Configuration
+logging:
+  level: "INFO"
+  log_file: "vendingbench.log"
