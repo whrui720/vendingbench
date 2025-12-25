@@ -68,8 +68,8 @@ class EvaluationResult:
         """
         if not self.metrics:
             return 0.0
-        passed = sum(1 for m in self.metrics if m.passed)
-        return passed / len(self.metrics)
+        passed_count = sum(1 for m in self.metrics if m.passed)
+        return passed_count / len(self.metrics)
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert result to dictionary.

@@ -16,7 +16,7 @@ class OpenAIAdapter(LLMInterface):
         
         Args:
             model_name: Name of the OpenAI model (e.g., 'gpt-4', 'gpt-3.5-turbo')
-            api_key: OpenAI API key (if not set in environment)
+            api_key: OpenAI API key. If None, will use OPENAI_API_KEY environment variable
             **kwargs: Additional configuration
         """
         super().__init__(model_name, **kwargs)
@@ -28,6 +28,7 @@ class OpenAIAdapter(LLMInterface):
                 "OpenAI package not installed. Install with: pip install openai"
             )
         
+        # OpenAI client will automatically use OPENAI_API_KEY env var if api_key is None
         self.client = OpenAI(api_key=api_key)
     
     def generate(

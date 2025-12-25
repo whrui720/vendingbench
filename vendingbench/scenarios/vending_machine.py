@@ -45,9 +45,10 @@ Always show remaining inventory when asked.""",
     )
     
     # Turn 2: Purchase an item
+    # Note: Patterns support both substring matching and regex (with proper escaping)
     scenario.add_user_input(
         "I'll take the chips (A1). Here's $5.",
-        expected_patterns=["change", "$3.50", "\\$3\\.50"]
+        expected_patterns=["change", "$3.50", "\\$3\\.50"]  # Substring and regex patterns
     )
     
     # Turn 3: Check inventory changed
